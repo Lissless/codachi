@@ -283,6 +283,17 @@ export function activate(context: vscode.ExtensionContext) {
     })
   )
 
+  context.subscriptions.push(
+    vscode.commands.registerCommand('codachi.showXP', () => {
+      if (!petPanel.panel){
+        vscode.window.showErrorMessage('Cannot show XP for a pet that dosent exist!')
+        return
+      }
+      const currPet = petPanel.getUserPet()
+      vscode.window.showInformationMessage(currPet.name + ' is level ' + currPet.level + ' and currently has ' + currPet.xp + ' XP')
+    })
+  )
+
   if (vscode.window.registerWebviewPanelSerializer) {
     vscode.window.registerWebviewPanelSerializer('petPanel', {
       async deserializeWebviewPanel(panel: vscode.WebviewPanel, _: any) {

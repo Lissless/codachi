@@ -41,6 +41,10 @@
 			{
 				"command": "codachi.spawnNewPet",
 				"title": "Codachi: New Pet"
+			},
+			{
+				"command": "codachi.showXP",
+				"title": "Codachi: Show XP"
 			}
 		]
 	},
